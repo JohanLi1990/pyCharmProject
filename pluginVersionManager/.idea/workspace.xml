@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="80101d37-f951-4664-a29c-96dff681a25d" name="Default Changelist" comment="" />
+    <list default="true" id="80101d37-f951-4664-a29c-96dff681a25d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.core/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.core/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.core/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.core/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.core/bin/org/eclipse/articles/adapters/core/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.core/build.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.core/src/org/eclipse/articles/adapters/core/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.properties/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.properties/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.properties/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.properties/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.properties/bin/org/eclipse/articles/adapters/properties/Activator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.properties/bin/org/eclipse/articles/adapters/properties/PersonPropertiesSourceAdapterFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.properties/bin/org/eclipse/articles/adapters/properties/PersonPropertySource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.properties/build.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.properties/plugin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.properties/src/org/eclipse/articles/adapters/properties/Activator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.properties/src/org/eclipse/articles/adapters/properties/PersonPropertiesSourceAdapterFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.properties/src/org/eclipse/articles/adapters/properties/PersonPropertySource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.ui/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.ui/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.ui/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.ui/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.ui/bin/org/eclipse/articles/adapters/ui/views/PeopleView$ViewContentProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.ui/bin/org/eclipse/articles/adapters/ui/views/PeopleView$ViewLabelProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.ui/bin/org/eclipse/articles/adapters/ui/views/PeopleView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.ui/build.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.ui/icons/sample.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.ui/plugin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adapters/org.eclipse.articles.adapters.ui/src/org/eclipse/articles/adapters/ui/views/PeopleView.java" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,20 +44,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pluginVersion.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="15" lean-forward="true" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+            <state relative-caret-position="152">
+              <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/os.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="408" selection-start-line="408" selection-end-line="408" />
             </state>
           </provider>
         </entry>
@@ -45,10 +67,20 @@
       <find>bundleversion</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/pluginVersion.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
       </list>
     </option>
   </component>
@@ -58,11 +90,13 @@
     <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -74,11 +108,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -138,12 +172,12 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24659607" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25037822" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3289689" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -162,15 +196,15 @@
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/os.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
+        <state relative-caret-position="351">
           <caret line="408" selection-start-line="408" selection-end-line="408" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pluginVersion.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="15" lean-forward="true" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+        <state relative-caret-position="152">
+          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
