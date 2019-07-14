@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Eclipse Corner Articles"
+            id="org.eclipse.articles.adapters.ui">
+      </category>
+      <view
+            name="People View"
+            icon="icons/sample.gif"
+            category="org.eclipse.articles.adapters.ui"
+            class="org.eclipse.articles.adapters.ui.views.PeopleView"
+            id="org.eclipse.articles.adapters.ui.views.PeopleView">
+      </view>
+   </extension>
+
+</plugin>

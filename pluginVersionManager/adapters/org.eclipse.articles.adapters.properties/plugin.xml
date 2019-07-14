@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+     <factory
+            adaptableType="org.eclipse.articles.adapters.core.Person"
+            class="org.eclipse.articles.adapters.properties.PersonPropertiesSourceAdapterFactory">
+         <adapter
+               type="org.eclipse.ui.views.properties.IPropertySource">
+         </adapter>
+      </factory>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup></startup>
+   </extension>
+
+</plugin>
