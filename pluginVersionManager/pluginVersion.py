@@ -1,31 +1,36 @@
 import os
 import in_place
 import argparse
-osPath = r"C:\Users\Pre-Installed User\Documents\adapters_try"
-bd_version = "Bundle-Version"
+import xml.etree.ElementTree
 
 
 class RcpPluginManager:
-    name = 'META-INF'
+    my_dict = {'META-INF' : 'META-INF/MANIFEST.MF', '.feature' : 'feature.xml'}
+    bd_version = "Bundle-Version"
 
     def __init__(self, args):
         self._args = args
+        self._path = args.path.replace('\\', '/')
+        # self._bundle_loc = self._path + '/bundles'
+        # self._feature_loc = self._path + '/features'
+        # self._product_loc = self._path + '/products'
 
-    def find_manifest(self, path):
-        list_of_manifest = []
-        for root, dirs, files in os.walk(path):
-            for directoryName in dirs:
-                if self.name in directoryName:
-                    manifest_dir = os.path.join(root, directoryName, 'MANIFEST.MF')
-                    manifest_dir = manifest_dir.replace('\\', '/')
-                    list_of_manifest.append(manifest_dir)
-        return list_of_manifest
+    def find_file_loc(self, name_of_dir, what_to_search):
+        list_of_file = []
+        path_to_search = self._path + '/' + name_of_dir
+        subdir = os.listdir(path_to_search)
+        for directoryName in subdir:
+            manifest_dir = os.path.join(path_to_search, directoryName, self.my_dict.get(what_to_search))
+            manifest_dir = manifest_dir.replace('\\', '/')
+            if os.path.exists(manifest_dir):
+                list_of_file.append(manifest_dir)
+        return list_of_file
 
     def modify_plugin_id(self, manifests):
         for mf in manifests:
             with in_place.InPlace(mf) as fp:
                 for line in fp:
-                    if bd_version in line:
+                    if self.bd_version in line:
                         # let go of qualifer
                         line = line.replace('.qualifier', '')
                         # increment version
@@ -33,8 +38,7 @@ class RcpPluginManager:
                         # print(line)
                     fp.write(line)
 
-    @staticmethod
-    def increment_version(bundle_version):
+    def increment_version(self, bundle_version):
         plugin_version = bundle_version.replace('\n', '').replace(' ', '').split(":")[1]
         plugin_id = plugin_version.split('.')
         n = len(plugin_id)
@@ -47,22 +51,50 @@ class RcpPluginManager:
                 plugin_id[n - 1] = str(last_id)
                 break
         final_id = '.'.join(plugin_id) + '\n'
-        final_line = bd_version + ": " + final_id
+        final_line = self.bd_version + ": " + final_id
         # print(final_line)
         # print(bundle_version)
         return final_line
 
+    def modify_dpd(self, loc):
+        location = self._path + '/' + loc
+        # 1. update about.mappings
+        with in_place.InPlace(location + '/about.mappings') as fp:
+            for line in fp:
+                if '-SNAPSHOT' in line:
+                    # let go of qualifer
+                    line = line.replace('-SNAPSHOT', '.0000')
+                    # print(line)
+                fp.write(line)
+        # 2. update plugin.xml with (Do I need to?)
+
+    def modify_feature(self):
+        path = self._path + '/features'
+        list_of_feature = self.find_file_loc('features', '.feature')
+        for feature_file in list_of_feature:
+            print('tes')
+
     def execute(self):
-        list_of_manifest = self.find_manifest(self._args.path)
-        self.modify_plugin_id(list_of_manifest)
+        # now the path location is C:/ST/DPDMC for e.g.
+        # step 1: make changes to release note in com.gemalto.dpd (about.mappings & plugin.xml) if necessary:
+        if self._args.release:
+            self.modify_dpd('bundles/com.gemalto.dpd')
+        # step 2: increment all plugin id. (including that of com.gemalto.dpd)
+        list_of_manifest = self.find_file_loc('bundles', 'META-INF')
+        # self.modify_plugin_id(list_of_manifest)
+        # step 3: Update feature version
+        self.modify_feature()
+        if self._args.feature:
+            self.modify_feature()
+
 
 
 def main():
     parser = argparse.ArgumentParser(description='this is a program that increment plugin ids')
-    parser.add_argument('path', help="location of DPDMC folder")
+    parser.add_argument('path', help="location of DPDMC/DPDCore folder")
+    parser.add_argument('-r', '--release', action='store_true', default=False)
     parser.add_argument("-f", "--feature", action='store_true', default=False)
-    print(parser.parse_args().feature)
-    rcp_manager = RcpPluginManager(parser.parse_args())
+    rcp_manager = RcpPluginManager(parser.parse_args(['C:\ST\DPDMC',]))
     rcp_manager.execute()
 
 
