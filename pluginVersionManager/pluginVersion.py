@@ -4,7 +4,7 @@ import argparse
 import xml.etree.ElementTree
 
 
-class RcpPluginManager:
+class RcpVersionManager:
     my_dict = {'META-INF' : 'META-INF/MANIFEST.MF', '.feature' : 'feature.xml'}
     bd_version = "Bundle-Version"
 
@@ -30,7 +30,7 @@ class RcpPluginManager:
         for mf in manifests:
             with in_place.InPlace(mf) as fp:
                 for line in fp:
-                    if self.bd_version in line:
+                    if self.bd_version in line and '.qualifier' in line:
                         # let go of qualifer
                         line = line.replace('.qualifier', '')
                         # increment version
@@ -88,13 +88,12 @@ class RcpPluginManager:
             self.modify_feature()
 
 
-
 def main():
     parser = argparse.ArgumentParser(description='this is a program that increment plugin ids')
     parser.add_argument('path', help="location of DPDMC/DPDCore folder")
     parser.add_argument('-r', '--release', action='store_true', default=False)
     parser.add_argument("-f", "--feature", action='store_true', default=False)
-    rcp_manager = RcpPluginManager(parser.parse_args(['C:\ST\DPDMC',]))
+    rcp_manager = RcpVersionManager(parser.parse_args(['C:\In_Case_You_Screw_Up\DPDMC', ]))
     rcp_manager.execute()
 
 
