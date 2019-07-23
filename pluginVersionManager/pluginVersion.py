@@ -57,16 +57,10 @@ class RcpVersionManager:
         return final_line
 
     def modify_dpd(self, loc):
-        location = self._path + '/' + loc
         # 1. update about.mappings
-        with in_place.InPlace(location + '/about.mappings') as fp:
-            for line in fp:
-                if '-SNAPSHOT' in line:
-                    # let go of qualifer
-                    line = line.replace('-SNAPSHOT', '.0000')
-                    # print(line)
-                fp.write(line)
-        # 2. update plugin.xml with (Do I need to?)
+        # self.modify_dpd_about_mappings(loc)
+        # 2. update plugin.xml with (add another tag for release date)
+        self.modify_dpd_plugin_xml(loc)
 
     def modify_feature(self):
         path = self._path + '/features'
@@ -74,18 +68,38 @@ class RcpVersionManager:
         for feature_file in list_of_feature:
             print('tes')
 
+    def modify_dpd_about_mappings(self, loc):
+        location = self._path + '/' + loc + '/about.mappings'
+        with in_place.InPlace(location) as fp:
+            for line in fp:
+                if '-SNAPSHOT' in line:
+                    # let go of qualifer
+                    line = line.replace('-SNAPSHOT', '.0000')
+                    # print(line)
+                fp.write(line)
+
+    def modify_dpd_plugin_xml(self, loc):
+        # https://docs.python.org/2/library/xml.etree.elementtree.html
+        location = self._path + '/' + loc + '/plugin.xml'
+        et = xml.etree.ElementTree.parse(location)
+        tag1 = et.getroot()
+        for child in tag1:
+            print(child.tag, child.attrib)
+
     def execute(self):
         # now the path location is C:/ST/DPDMC for e.g.
         # step 1: make changes to release note in com.gemalto.dpd (about.mappings & plugin.xml) if necessary:
         if self._args.release:
-            self.modify_dpd('bundles/com.gemalto.dpd')
+            self.modify_dpd('org.eclipse.articles.adapters.properties')
+
         # step 2: increment all plugin id. (including that of com.gemalto.dpd)
-        list_of_manifest = self.find_file_loc('bundles', 'META-INF')
+        # list_of_manifest = self.find_file_loc('bundles', 'META-INF')
         # self.modify_plugin_id(list_of_manifest)
+
         # step 3: Update feature version
-        self.modify_feature()
-        if self._args.feature:
-            self.modify_feature()
+        # self.modify_feature()
+        # if self._args.feature:
+        #     self.modify_feature()
 
 
 def main():
@@ -93,7 +107,8 @@ def main():
     parser.add_argument('path', help="location of DPDMC/DPDCore folder")
     parser.add_argument('-r', '--release', action='store_true', default=False)
     parser.add_argument("-f", "--feature", action='store_true', default=False)
-    rcp_manager = RcpVersionManager(parser.parse_args(['C:\In_Case_You_Screw_Up\DPDMC', ]))
+    rcp_manager = RcpVersionManager(parser.parse_args([r'C:\Users\Pre-Installed User\Documents\adapters_try', '-r']))
+    # rcp_manager = RcpVersionManager(parser.parse_args())
     rcp_manager.execute()
 
 
