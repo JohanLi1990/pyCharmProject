@@ -1,7 +1,7 @@
 import os
 import in_place
 import argparse
-import xml.etree.ElementTree
+from lxml import etree
 
 
 class RcpVersionManager:
@@ -77,14 +77,25 @@ class RcpVersionManager:
                     line = line.replace('-SNAPSHOT', '.0000')
                     # print(line)
                 fp.write(line)
+        # TODO: Need to add date to about.mappings
 
     def modify_dpd_plugin_xml(self, loc):
         # https://docs.python.org/2/library/xml.etree.elementtree.html
         location = self._path + '/' + loc + '/plugin.xml'
-        et = xml.etree.ElementTree.parse(location)
+        et = etree.parse(location)
         tag1 = et.getroot()
         for child in tag1:
             print(child.tag, child.attrib)
+        for extension in tag1.findall('extension'):
+            if extension.get('point') == 'org.eclipse.core.runtime.adapters':
+                target_ext = extension
+                break
+        factory_node = target_ext.find('factory')
+        print(factory_node.get('class'))
+        new_tag = etree.SubElement(factory_node, 'adapter')
+        new_tag.attrib['type'] = 'banana'
+        et.write(location, xml_declaration=True, pretty_print=True, encoding='UTF-8')
+
 
     def execute(self):
         # now the path location is C:/ST/DPDMC for e.g.
