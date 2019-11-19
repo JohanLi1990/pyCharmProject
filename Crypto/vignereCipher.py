@@ -4,7 +4,6 @@
 #The Vigenere Algo
 ALPHABET = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-
 def vigenere_encrypt(text, key, enc=True):
     text = text.upper()
     key = key.upper()
